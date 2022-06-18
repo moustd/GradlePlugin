@@ -36,3 +36,10 @@ jobs:
 
       - name: Execute Gradle build
         run: ./gradlew build
+
+      - name: Upload the build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: build/libs
+          retention-days: 1
