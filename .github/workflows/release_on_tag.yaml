@@ -36,9 +36,12 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew build
 
-      - name: Upload the build output
-        uses: actions/upload-artifact@v2
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: Build Output
-          path: build/libs/GradlePlugin-1.0-SNAPSHOT.jar
-          retention-days: 1
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build/libs/GradlePlugin-1.0-SNAPSHOT.jar
+          asset_name: GradlePlugin-1.0-SNAPSHOT.jar
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "This is my release text"
