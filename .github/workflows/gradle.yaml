@@ -40,6 +40,6 @@ jobs:
       - name: Upload the build output
         uses: actions/upload-artifact@v2
         with:
-          name: build-output
-          path: build/libs
+          name: Build Output
+          path: build/libs/GradlePlugin-1.0-SNAPSHOT.jar
           retention-days: 1
